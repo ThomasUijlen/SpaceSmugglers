@@ -39,6 +39,9 @@ public class SpaceSmugglers extends GameEngine{
         
         //GameObject g = new GameObject(this, 100, 100, 100);
         //addGameObject(g, 200, 200);
+        
+        ShipPattern p = new ShipPattern(this);
+        p.loadPattern();
     }
 	
 	@Override
