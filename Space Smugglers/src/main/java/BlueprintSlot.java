@@ -4,13 +4,13 @@ import nl.han.ica.oopg.objects.SpriteObject;
 public class BlueprintSlot extends SpriteObject {
 	SpaceSmugglers app;
 	
-	public BlueprintSlot(SpaceSmugglers p, Sprite s, int x, int y) {
-		super(s);
+	public BlueprintSlot(SpaceSmugglers p, int x, int y) {
+		super(new Sprite("src/main/data/textures/blueSlot.png"));
 		this.app = p;
 		this.x = x;
 		this.y = y;
-		setWidth(100);
-		setHeight(100);
+		setWidth(50);
+		setHeight(50);
 		
 	}
 	

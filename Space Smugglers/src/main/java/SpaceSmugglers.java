@@ -35,6 +35,7 @@ public class SpaceSmugglers extends GameEngine{
         view.setBackground(background);
         setView(view);
         size(worldWidth, worldHeight);
+        //fullScreen();
         
         //GameObject g = new GameObject(this, 100, 100, 100);
         //addGameObject(g, 200, 200);
@@ -55,10 +56,7 @@ public class SpaceSmugglers extends GameEngine{
 		}
         
         if(mouseButton == RIGHT) {
-        	PImage image = loadImage("src/main/data/textures/greenSlot.png");
-        	image.resize(100, 100);
-        	Sprite sp = new Sprite(image);
-        	BlueprintSlot s = new BlueprintSlot(this, sp, mouseX, mouseY);
+        	BlueprintSlot s = new BlueprintSlot(this, mouseX, mouseY);
         	addGameObject(s, mouseX, mouseY);
         }
 	}
