@@ -55,8 +55,11 @@ public class SpaceSmugglers extends GameEngine{
 		}
         
         if(mouseButton == RIGHT) {
-        BlueprintSlot s = new BlueprintSlot(this, mouseX, mouseY);
-        addGameObject(s, mouseX, mouseY);
+        	PImage image = loadImage("src/main/data/textures/greenSlot.png");
+        	image.resize(100, 100);
+        	Sprite sp = new Sprite(image);
+        	BlueprintSlot s = new BlueprintSlot(this, sp, mouseX, mouseY);
+        	addGameObject(s, mouseX, mouseY);
         }
 	}
 }
