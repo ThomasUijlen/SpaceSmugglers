@@ -55,7 +55,7 @@ public class SpaceSmugglers extends GameEngine{
 		}
         
         if(mouseButton == RIGHT) {
-        BlueprintSlot s = new BlueprintSlot(this, mouseX, mouseY, 100);
+        BlueprintSlot s = new BlueprintSlot(this, mouseX, mouseY);
         addGameObject(s, mouseX, mouseY);
         }
 	}
