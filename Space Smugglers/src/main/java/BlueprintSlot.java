@@ -29,7 +29,6 @@ public class BlueprintSlot extends SpriteObject {
 	private void mousePressed() {
 		if(app.mousePressed && app.mouseButton == LEFT) {
 			if(app.mouseX >= x && app.mouseX < x + width && app.mouseY > y && app.mouseY < y + height) {
-				//app.PImage image 
 				GameObject g = new GameObject(app, 100, 100, 100);
 				app.addGameObject(g, x, y);
 			}
