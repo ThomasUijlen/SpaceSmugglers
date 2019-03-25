@@ -22,47 +22,45 @@ public class SpaceSmugglers extends GameEngine{
 
         PApplet.runSketch(processingArgs, mySketch);
     }
-	//ArrayList<BlueprintSlot> slot = new ArrayList<BlueprintSlot>();
 	
+	String currentScreen = "hangar";
+	HangarScreen hs;
+	Background b1;
+	Background b2;
 	@Override
 	public void setupGame() {
 
-        int worldWidth = 1204;
-        int worldHeight = 903;
+        int worldWidth = 1000;
+        int worldHeight = 1000;
         
         View view = new View(worldWidth, worldHeight);
-        PImage background = loadImage("src/main/data/textures/background.png");
-        background.resize(worldWidth, worldHeight);
-        view.setBackground(background);
         setView(view);
         size(worldWidth, worldHeight);
         //fullScreen();
-        //GameObject g = new GameObject(this, 100, 100, 100);
-        //addGameObject(g, 200, 200);
         
-        ShipPattern p = new ShipPattern(this, 2);
-        p.loadPattern();
+        hs = new HangarScreen(this);
+        hs.loadSave();
+        hs.saveSave();
+        hs.load();
+        hs.loadShip();
+        
+        PImage background = loadImage("src/main/data/textures/background.png");
+        background.resize(worldWidth, worldHeight);
+        
+        b1 = new Background(this,background);
+        b2 = new Background(this,background);
     }
 	
 	@Override
-    public void update() {
+	public void update() {
+		switch(currentScreen) {
+		case "hangar":
+			hs.update();
+			break;
+		}
     }
 	
 	public void mousePressed() {
-		if(mouseButton == LEFT) {
-//		GameObject g = new GameObject(this, 100, 100, 100);
-//        addGameObject(g, mouseX, mouseY);
-//			for()
-//			if (go instanceof BlueprintSlot) {				
-//				
-//			}
-			
-		}
-        
-        if(mouseButton == RIGHT) {
-        	Sprite sp = new Sprite("src/main/data/textures/redSlot.png");
-        	BlueprintSlot s = new BlueprintSlot(this, sp);
-        	addGameObject(s, mouseX, mouseY);
-        }
+		//hs.clearBlueprint();
 	}
 }

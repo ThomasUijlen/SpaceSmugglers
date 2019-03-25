@@ -1,22 +1,23 @@
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.SpriteObject;
-import nl.han.ica.oopg.collision.ICollidableWithGameObjects;
+import processing.core.PGraphics;
 import nl.han.ica.oopg.objects.GameObject;
-import java.util.List;
 import java.util.Vector;
 
 public class BlueprintSlot extends SpriteObject {
 	SpaceSmugglers app;
+	boolean unlocked;
 	boolean available = false;
 	boolean occupied = false;
 	Sprite sp;
 	
-	public BlueprintSlot(SpaceSmugglers p, Sprite sp) {
+	public BlueprintSlot(SpaceSmugglers p, Sprite sp, boolean unlocked) {
 		super(sp);
 		this.app = p;
 		setWidth(50);
 		setHeight(50);
 		this.sp = sp;
+		this.unlocked = unlocked;
 		
 	}
 	
@@ -26,6 +27,16 @@ public class BlueprintSlot extends SpriteObject {
 		mousePressed();
 		checkStatus();
 	}
+	
+	@Override
+    public void draw(PGraphics g) {
+		if(unlocked) {
+			g.tint(255);
+		} else {
+			g.tint(150);
+		}
+        g.image(sp.getPImage(),x,y);
+    }
 	
 	private void removeSlot() {
 		if(occupied) {
@@ -63,7 +74,7 @@ public class BlueprintSlot extends SpriteObject {
 //	}
 	
 	private void mousePressed() {
-		if(app.mousePressed && app.mouseButton == LEFT) {
+		if(app.mousePressed && app.mouseButton == LEFT && unlocked) {
 			if(app.mouseX >= x && app.mouseX < x + width && app.mouseY > y && app.mouseY < y + height && available) {
 				fillSlot();
 			}

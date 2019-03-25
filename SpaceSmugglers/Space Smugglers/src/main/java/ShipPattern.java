@@ -55,13 +55,13 @@ public class ShipPattern {
 		this.ship = ship;
 	}
 	
-	public void loadPattern() {
+	public void loadPattern(boolean unlocked) {
 		int[][] pattern = this.pattern[ship];
 		for(int i = 0; i < pattern.length; i++) {
 			int x = pattern[i][0] + app.width/2;
 			int y = pattern[i][1] + app.height/2;
 			Sprite sp = new Sprite("src/main/data/textures/blueSlot.png");
-			BlueprintSlot s = new BlueprintSlot(app, sp);
+			BlueprintSlot s = new BlueprintSlot(app, sp, unlocked);
     		app.addGameObject(s, x, y);
    
     		
