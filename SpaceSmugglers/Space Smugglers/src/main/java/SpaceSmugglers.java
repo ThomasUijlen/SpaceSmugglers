@@ -56,6 +56,7 @@ public class SpaceSmugglers extends GameEngine{
 //			if (go instanceof BlueprintSlot) {				
 //				
 //			}
+			
 		}
         
         if(mouseButton == RIGHT) {

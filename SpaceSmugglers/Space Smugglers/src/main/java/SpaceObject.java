@@ -29,4 +29,6 @@ public class SpaceObject extends SpriteObject {
 			return false;
 		}
 	}
+	
+	
 }
